@@ -68,5 +68,51 @@ print(jsonresult)
 #%%
 
 df = pd.read_csv("my_portfolio.csv")
+print(df)
 
+
+x = 0
+client = chromadb.PersistentClient('vectorstore')
+collect = client.get_or_create_collection(name='portfolio')
+if not collect.count():
+    for _, row in df.iterrows():
+        collect.add(
+        documents = row["Techstack"],
+        metadatas = {"links" : row["Links"]},
+        ids = ["id" + str(x)]
+        )
+        x += 1
+
+print(
+    collect.query(
+        query_texts=["Experience in Python", "Expertise in React"],
+        n_results = 2
+    ).get("metadatas")
+)
+
+links = collect.query(
+            query_texts=jsonresult["skills"],
+            n_results = 2
+        ).get("metadatas", [])
+
+#%%
+
+cmail = PromptTemplate.from_template(
+    """
+    ### JOB DESCRIPTION:
+    {page_data}
+
+    ### INSTRUCTION:
+    You are JimBob, a business development executive at OpenAI. your job is to write a cold email to the client regarding the job 
+    mentioned above describing the capability of OpenAI in fulfilling their needs.
+    Also add the most relevant ones from the following links to showcase OpenAI's portfolio: {link_list}
+    Remember, you are JimBob, BDE at OpenAI.
+
+    ### EMAIL (NO PREAMBLE):
+    """
+)
+
+chain_email = cmail | llm
+emailresult = chain_email.invoke({"page_data" : page_data, "link_list" : links})
+print(emailresult.content)
 #%%
