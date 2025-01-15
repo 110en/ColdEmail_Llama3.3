@@ -67,7 +67,7 @@ print(jsonresult)
 
 #%%
 
-df = pd.read_csv("my_portfolio.csv")
+df = pd.read_csv("testing/my_portfolio.csv")
 print(df)
 
 
