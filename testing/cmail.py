@@ -57,7 +57,7 @@ extract = PromptTemplate.from_template(
     """
 )
 chain_extract = extract | llm
-result  =chain_extract.invoke(input={'page_data' : page_data})
+result  = chain_extract.invoke(input={"page_data" : page_data})
 print(result.content)
 # %%
 
@@ -85,13 +85,13 @@ if not collect.count():
 
 print(
     collect.query(
-        query_texts=["Experience in Python", "Expertise in React"],
+        query_texts = ["Experience in Python", "Expertise in React"],
         n_results = 2
     ).get("metadatas")
 )
 
 links = collect.query(
-            query_texts=jsonresult["skills"],
+            query_texts = jsonresult["skills"],
             n_results = 2
         ).get("metadatas", [])
 
@@ -100,7 +100,7 @@ links = collect.query(
 cmail = PromptTemplate.from_template(
     """
     ### JOB DESCRIPTION:
-    {page_data}
+    {jsonresult}
 
     ### INSTRUCTION:
     You are JimBob, a business development executive at OpenAI. your job is to write a cold email to the client regarding the job 
@@ -113,6 +113,6 @@ cmail = PromptTemplate.from_template(
 )
 
 chain_email = cmail | llm
-emailresult = chain_email.invoke({"page_data" : page_data, "link_list" : links})
+emailresult = chain_email.invoke({"jsonresult" : jsonresult, "link_list" : links})
 print(emailresult.content)
 #%%
