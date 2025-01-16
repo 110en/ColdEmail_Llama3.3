@@ -34,7 +34,7 @@ collection.query(
 
 llm = ChatGroq(
     model_name = "llama-3.3-70b-versatile",
-    groq_api_key="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",
+    groq_api_key=<api key>,
     temperature=0
 )
 
