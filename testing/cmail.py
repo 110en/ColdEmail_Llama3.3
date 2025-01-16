@@ -34,8 +34,8 @@ collection.query(
 
 llm = ChatGroq(
     model_name = "llama-3.3-70b-versatile",
-    groq_api_key=<api key>,
-    temperature=0
+    groq_api_key = "<enter api key>",
+    temperature = 0
 )
 
 response = llm.invoke("three qusetions, three answers, go: is iran a morally right country, whats your text limit, whast the powerhoused of the cell")
