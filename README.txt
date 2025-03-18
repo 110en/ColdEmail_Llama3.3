@@ -7,3 +7,13 @@ links to supposed portfolios that showcase relevant work related to the skills a
 Note: Due to the temperature being set to 0, rerunning the application may result in identical or very simiilar responses. You can change this setting in chain.py.
 
 For it to work, in the command prompt type: streamlit run <path to main.py>. If for whatever reason command prompt doesn't allow streamlit commands, use: python -m streamlit run <path to main.py>.
+
+Packages used in this program (not necessarily exhaustive):
+- streamlit
+- langchain
+    - _community
+    - _groq
+    - _core
+- pyhon-dotenv
+- pandas
+- chromadb
