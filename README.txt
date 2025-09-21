@@ -17,3 +17,13 @@ Packages used in this program (not necessarily exhaustive):
 - pyhon-dotenv
 - pandas
 - chromadb
+
+pip install streamlit
+pip install langchain
+pip install langchain-community  
+pip install langchain-groq
+pip install langchain-core
+pip install python-dotenv
+pip install pandas
+pip install chromadb
+pip install beautifulsoup4
