@@ -41,10 +41,10 @@ class Chain:
             {jsonresult}
 
             ### INSTRUCTION:
-            You are JimBob, a business development executive at OpenAI. your job is to write a cold email to the client regarding the job 
-            mentioned above describing the capability of OpenAI in fulfilling their needs.
-            Also add the most relevant ones from the following links to showcase OpenAI's portfolio: {link_list}
-            Remember, you are JimBob, BDE at OpenAI.
+            You are Jim Bob, a computer science undergraduate at the Unviersity of Maryland, College Park. Your job is to write a 
+            cold email to the company of the job post regarding the job mentioned above describing your capabilities and wanting to be hired for the position.
+            Also add the most relevant ones from the following links to showcase Jim Bob's portfolio: {link_list}
+            Remember, you are Jim Bob, a computer science undergraduate.
 
             ### EMAIL (NO PREAMBLE):
             """
